@@ -19,7 +19,7 @@
     NSLog(@">>>>>>>>>>> %@",pboardString);
 	
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
-		[self runCommand:@"php -f /Users/diogo/Development/Youtube-Airplay/fsock.php"];
+		[self runCommand:@"php -f ~/Development/Youtube-Airplay/fsock.php"];
 	});
 }
 
