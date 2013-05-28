@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF24631B1755359200422A58 /* NSString+RegularExpressionSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = CF24631A1755359200422A58 /* NSString+RegularExpressionSearch.m */; };
+		CF24632D1755559900422A58 /* LBYouTubeExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CF24632A1755559900422A58 /* LBYouTubeExtractor.m */; };
+		CF24632E1755559900422A58 /* LBYouTubeExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CF24632A1755559900422A58 /* LBYouTubeExtractor.m */; };
 		D98D23F017542292003F434C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98D23EF17542292003F434C /* Cocoa.framework */; };
 		D98D23FA17542292003F434C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D98D23F817542292003F434C /* InfoPlist.strings */; };
 		D98D23FC17542292003F434C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D98D23FB17542292003F434C /* main.m */; };
@@ -31,6 +34,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF2463191755359200422A58 /* NSString+RegularExpressionSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+RegularExpressionSearch.h"; sourceTree = "<group>"; };
+		CF24631A1755359200422A58 /* NSString+RegularExpressionSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+RegularExpressionSearch.m"; sourceTree = "<group>"; };
+		CF2463281755559900422A58 /* LBYouTube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTube.h; sourceTree = "<group>"; };
+		CF2463291755559900422A58 /* LBYouTubeExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTubeExtractor.h; sourceTree = "<group>"; };
+		CF24632A1755559900422A58 /* LBYouTubeExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBYouTubeExtractor.m; sourceTree = "<group>"; };
 		D98D23EC17542292003F434C /* AirTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98D23EF17542292003F434C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D98D23F217542292003F434C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -74,9 +82,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF24631C17554DF900422A58 /* LBYouTubeView */ = {
+			isa = PBXGroup;
+			children = (
+				CF2463281755559900422A58 /* LBYouTube.h */,
+				CF2463291755559900422A58 /* LBYouTubeExtractor.h */,
+				CF24632A1755559900422A58 /* LBYouTubeExtractor.m */,
+			);
+			name = LBYouTubeView;
+			path = AirTube;
+			sourceTree = "<group>";
+		};
 		D98D23E317542292003F434C = {
 			isa = PBXGroup;
 			children = (
+				CF24631C17554DF900422A58 /* LBYouTubeView */,
 				D98D23F517542292003F434C /* AirTube */,
 				D98D241217542292003F434C /* AirTubeTests */,
 				D98D23EE17542292003F434C /* Frameworks */,
@@ -116,6 +136,8 @@
 		D98D23F517542292003F434C /* AirTube */ = {
 			isa = PBXGroup;
 			children = (
+				CF2463191755359200422A58 /* NSString+RegularExpressionSearch.h */,
+				CF24631A1755359200422A58 /* NSString+RegularExpressionSearch.m */,
 				D98D2423175429D0003F434C /* Airplay.jpg */,
 				D98D240117542292003F434C /* AppDelegate.h */,
 				D98D240217542292003F434C /* AppDelegate.m */,
@@ -267,6 +289,7 @@
 			files = (
 				D98D23FC17542292003F434C /* main.m in Sources */,
 				D98D240317542292003F434C /* AppDelegate.m in Sources */,
+				CF24632D1755559900422A58 /* LBYouTubeExtractor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +298,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D98D241A17542292003F434C /* AirTubeTests.m in Sources */,
+				CF24631B1755359200422A58 /* NSString+RegularExpressionSearch.m in Sources */,
+				CF24632E1755559900422A58 /* LBYouTubeExtractor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +481,7 @@
 				D98D241F17542292003F434C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D98D242017542292003F434C /* Build configuration list for PBXNativeTarget "AirTubeTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +490,7 @@
 				D98D242217542292003F434C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

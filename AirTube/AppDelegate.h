@@ -7,12 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NSString+RegularExpressionSearch.h"
+#import "LBYouTubeExtractor.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>{
 	BOOL stopRunning;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (nonatomic, strong) LBYouTubeExtractor* extractor;
 
 - (IBAction)stopRunning:(id)sender;
 
