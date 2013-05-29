@@ -138,7 +138,12 @@
 	//	[msgBox runModal];
 }
 
-
+- (IBAction)useClipboardLink:(id)sender{
+	NSPasteboard*  myPasteboard  = [NSPasteboard generalPasteboard];
+	NSString* link = [myPasteboard  stringForType:NSPasteboardTypeString];
+	NSLog(@"%@", link);
+	[self getYoutubeMP4FromURL:link];
+}
 
 
 - (NSString *)runCommand:(NSString *) commandToRun{
