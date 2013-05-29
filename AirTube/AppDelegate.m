@@ -55,7 +55,6 @@
 		
 		NSError *errorReturned;
 		NSURLResponse *theResponse = [[NSURLResponse alloc] init];
-		NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&theResponse error:&errorReturned];
 		//	NSLog(@"%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 		if (errorReturned) {
 			
@@ -105,8 +104,6 @@
 				NSArray *scrubArray = [scrubString componentsSeparatedByString:@"\n"];
 				duration = [[scrubArray objectAtIndex:0] stringByReplacingOccurrencesOfString:@"duration: " withString:@""];
 				position = [[scrubArray objectAtIndex:1] stringByReplacingOccurrencesOfString:@"position: " withString:@""];
-				NSLog(duration);
-				NSLog(position);
 			}
 		
 		}
@@ -117,53 +114,10 @@
 }
 
 - (IBAction)stopRunning:(id)sender{
-	stopRunning = YES;	
-}
-
-- (NSString *)runCommand:(NSString *) commandToRun{
-	
-	stopRunning = NO;
-	
-    NSTask *task;
-    task = [[NSTask alloc] init];
-    [task setLaunchPath: @"/bin/sh"];
-    
-    NSArray *arguments = [NSArray arrayWithObjects:
-                          @"-c" ,
-                          [NSString stringWithFormat:@"%@", commandToRun],
-                          nil];
-    NSLog(@"run command: %@",commandToRun);
-    [task setArguments: arguments];
-    
-    NSPipe *pipe;
-    pipe = [NSPipe pipe];
-    [task setStandardOutput: pipe];
-    
-    NSFileHandle *file;
-    file = [pipe fileHandleForReading];
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
-		
-		[task launch];
-		stopRunning = YES;
-		
-//		dispatch_async(dispatch_get_main_queue(), ^(void) {
-//			
-//		});
-	});
-	
-	while (!stopRunning) {
-		
-	}
-	
-	[task terminate];
-    
-    NSData *data;
-    data = [file readDataToEndOfFile];
-    
-    NSString *output;
-    output = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-    return output;
+	NSAlert* msgBox = [[NSAlert alloc] init];
+	[msgBox setMessageText: @"Funcionalidade ainda não implementada :("];
+	[msgBox addButtonWithTitle: @"OK"];
+	[msgBox runModal];
 }
 
 @end
