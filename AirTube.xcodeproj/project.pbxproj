@@ -21,6 +21,9 @@
 		D98D241717542292003F434C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D98D241517542292003F434C /* InfoPlist.strings */; };
 		D98D241A17542292003F434C /* AirTubeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D98D241917542292003F434C /* AirTubeTests.m */; };
 		D98D2424175429D0003F434C /* Airplay.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D98D2423175429D0003F434C /* Airplay.jpg */; };
+		D9A0BDA01756997000E3738B /* appninja_app_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A0BD9D1756997000E3738B /* appninja_app_1024.png */; };
+		D9A0BDA11756997000E3738B /* appninja_app_1024_rounded.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A0BD9E1756997000E3738B /* appninja_app_1024_rounded.png */; };
+		D9A0BDA21756997000E3738B /* appninja_app_1024_rounded.icns in Resources */ = {isa = PBXBuildFile; fileRef = D9A0BD9F1756997000E3738B /* appninja_app_1024_rounded.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		D98D241817542292003F434C /* AirTubeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirTubeTests.h; sourceTree = "<group>"; };
 		D98D241917542292003F434C /* AirTubeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirTubeTests.m; sourceTree = "<group>"; };
 		D98D2423175429D0003F434C /* Airplay.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Airplay.jpg; sourceTree = "<group>"; };
+		D9A0BD9D1756997000E3738B /* appninja_app_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appninja_app_1024.png; sourceTree = "<group>"; };
+		D9A0BD9E1756997000E3738B /* appninja_app_1024_rounded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appninja_app_1024_rounded.png; sourceTree = "<group>"; };
+		D9A0BD9F1756997000E3738B /* appninja_app_1024_rounded.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = appninja_app_1024_rounded.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,9 @@
 		D98D23E317542292003F434C = {
 			isa = PBXGroup;
 			children = (
+				D9A0BD9D1756997000E3738B /* appninja_app_1024.png */,
+				D9A0BD9E1756997000E3738B /* appninja_app_1024_rounded.png */,
+				D9A0BD9F1756997000E3738B /* appninja_app_1024_rounded.icns */,
 				CF24631C17554DF900422A58 /* LBYouTubeView */,
 				D98D23F517542292003F434C /* AirTube */,
 				D98D241217542292003F434C /* AirTubeTests */,
@@ -253,6 +262,9 @@
 				D98D240017542292003F434C /* Credits.rtf in Resources */,
 				D98D240617542292003F434C /* MainMenu.xib in Resources */,
 				D98D2424175429D0003F434C /* Airplay.jpg in Resources */,
+				D9A0BDA01756997000E3738B /* appninja_app_1024.png in Resources */,
+				D9A0BDA11756997000E3738B /* appninja_app_1024_rounded.png in Resources */,
+				D9A0BDA21756997000E3738B /* appninja_app_1024_rounded.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
