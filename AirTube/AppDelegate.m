@@ -55,6 +55,7 @@
 		
 		NSError *errorReturned;
 		NSURLResponse *theResponse = [[NSURLResponse alloc] init];
+		[NSURLConnection sendSynchronousRequest:request returningResponse:&theResponse error:&errorReturned];
 		//	NSLog(@"%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 		if (errorReturned) {
 			
@@ -114,10 +115,76 @@
 }
 
 - (IBAction)stopRunning:(id)sender{
-	NSAlert* msgBox = [[NSAlert alloc] init];
-	[msgBox setMessageText: @"Funcionalidade ainda não implementada :("];
-	[msgBox addButtonWithTitle: @"OK"];
-	[msgBox runModal];
+	
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
+		NSURL *url = [NSURL URLWithString:@"http://192.168.20.39:7000/stop"];
+		
+		NSMutableURLRequest *request;
+		request = [NSMutableURLRequest requestWithURL:url];
+		
+		[request setHTTPMethod:@"POST"];
+		
+		//		[request setValue:@"ios" forHTTPHeaderField:@"device_os"];
+		
+		NSError *errorReturned;
+		NSURLResponse *theResponse = [[NSURLResponse alloc] init];
+		[NSURLConnection sendSynchronousRequest:request returningResponse:&theResponse error:&errorReturned];
+	});
+	
+	
+	//	NSAlert* msgBox = [[NSAlert alloc] init];
+	//	[msgBox setMessageText: @"Funcionalidade ainda não implementada :("];
+	//	[msgBox addButtonWithTitle: @"OK"];
+	//	[msgBox runModal];
+}
+
+
+
+
+- (NSString *)runCommand:(NSString *) commandToRun{
+	
+	stopRunning = NO;
+	
+    NSTask *task;
+    task = [[NSTask alloc] init];
+    [task setLaunchPath: @"/bin/sh"];
+    
+    NSArray *arguments = [NSArray arrayWithObjects:
+                          @"-c" ,
+                          [NSString stringWithFormat:@"%@", commandToRun],
+                          nil];
+    NSLog(@"run command: %@",commandToRun);
+    [task setArguments: arguments];
+    
+    NSPipe *pipe;
+    pipe = [NSPipe pipe];
+    [task setStandardOutput: pipe];
+    
+    NSFileHandle *file;
+    file = [pipe fileHandleForReading];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
+		
+		[task launch];
+		stopRunning = YES;
+		
+//		dispatch_async(dispatch_get_main_queue(), ^(void) {
+//			
+//		});
+	});
+	
+	while (!stopRunning) {
+		
+	}
+	
+	[task terminate];
+    
+    NSData *data;
+    data = [file readDataToEndOfFile];
+    
+    NSString *output;
+    output = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+    return output;
 }
 
 @end

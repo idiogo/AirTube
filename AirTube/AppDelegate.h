@@ -18,5 +18,6 @@
 @property (nonatomic, strong) LBYouTubeExtractor* extractor;
 
 - (IBAction)stopRunning:(id)sender;
+- (IBAction)useClipboardLink:(id)sender;
 
 @end
