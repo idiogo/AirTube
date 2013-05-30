@@ -28,7 +28,7 @@
         
         [self doRequestWithAction:@"play" requestMethod:@"POST" resquestBody:body];
 		
-		[NSThread sleepForTimeInterval:30];
+//		[NSThread sleepForTimeInterval:30];
 		[self scrub];
 	});
 }
@@ -45,21 +45,47 @@
 
 - (void)scrub {
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
-		NSString * duration = @"1";
-		NSString * position = @"0";
-		while (![duration  isEqualToString:position]) {
-			NSData *data = [self doRequestWithAction:@"scrub" requestMethod:@"GET"];
-			
-            NSString *scrubString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            NSArray *scrubArray = [scrubString componentsSeparatedByString:@"\n"];
-            duration = [[scrubArray objectAtIndex:0] stringByReplacingOccurrencesOfString:@"duration: " withString:@""];
-            position = [[scrubArray objectAtIndex:1] stringByReplacingOccurrencesOfString:@"position: " withString:@""];
-            
+		float duration = 1;
+		float position = 0;
+		float rate = 1;
+		BOOL readyToPlay = false;
+		
+		while (!readyToPlay) {
+			readyToPlay = [[[self playbackInfo] objectForKey:@"readyToPlay"] boolValue];
 		}
 		
+		while (duration > position && rate == 1) {
+			
+			NSDictionary *plist = [self playbackInfo];
+			
+			duration = [[plist objectForKey:@"rate"] floatValue];
+			duration = [[plist objectForKey:@"duration"] floatValue];
+			position = [[plist objectForKey:@"position"] floatValue];
+			
+			duration = duration *10;
+			position = position *10;
+			
+			duration = truncf(duration);
+			position = truncf(position);					
+
+		}
+		
+		[self doRequestWithAction:@"stop" requestMethod:@"POST"];
 		
 		
 	});
+}
+
+-(NSDictionary *)playbackInfo{
+	NSData *data = [self doRequestWithAction:@"playback-info" requestMethod:@"GET"];
+	
+	NSString *error;
+	NSPropertyListFormat format;
+	NSDictionary *plist = [NSPropertyListSerialization propertyListFromData:data
+														   mutabilityOption:NSPropertyListImmutable
+																	 format:&format
+														   errorDescription:&error];
+	return plist;
 }
 
 - (void)stopAirPlay{
