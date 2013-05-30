@@ -12,6 +12,7 @@
 
 -(id)initWithHostName:(NSString *)hostName{
     self = [super init];
+	[self setIsPlayng:NO];
     if(self) {
         self.hostName = hostName;
 		self.url = [NSString stringWithFormat:@"http://%@:7000/", hostName];
@@ -28,7 +29,6 @@
         
         [self doRequestWithAction:@"play" requestMethod:@"POST" resquestBody:body];
 		
-//		[NSThread sleepForTimeInterval:30];
 		[self scrub];
 	});
 }
@@ -65,8 +65,12 @@
 		while (!readyToPlay) {
 			readyToPlay = [[[self playbackInfo] objectForKey:@"readyToPlay"] boolValue];
 		}
-		
+		[self setIsPlayng:YES];
 		while (duration > position && rate == 1) {
+			
+			if(!self.isPlayng) {
+				break;
+			}
 			
 			NSDictionary *plist = [self playbackInfo];
 			
@@ -82,7 +86,7 @@
 
 		}
 		
-		[self doRequestWithAction:@"stop" requestMethod:@"POST"];
+		[self stopAirPlay];
 		
 		
 	});
@@ -102,6 +106,7 @@
 
 - (void)stopAirPlay{
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
+		[self setIsPlayng:NO];
         [self doRequestWithAction:@"stop" requestMethod:@"POST"];
 	});
 }
