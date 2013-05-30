@@ -35,7 +35,7 @@
 }
 
 -(void)awakeFromNib{
-	statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:30.0f];
+	statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:17.0f];
 	[statusItem setMenu:self.statusMenu];
 	[statusItem setImage:[NSImage imageNamed:@"airtube_statusbar"]];
 	[statusItem setHighlightMode:YES];
