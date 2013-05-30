@@ -13,6 +13,7 @@
 @property (strong,nonatomic) NSString *name;
 @property (strong,nonatomic) NSString *hostName;
 @property (strong,nonatomic) NSString *url;
+@property BOOL isPlayng;
 
 -(void)airPlayVideoWithURL:(NSString *)mp4URL;
 - (void)airPlayPhotoWithURL: (NSString *)photoUrl;
