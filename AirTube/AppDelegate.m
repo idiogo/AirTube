@@ -98,11 +98,12 @@
 	[self.extractor startExtracting];
 }
 
-- (void) getVideoMP4FromURL:(NSString *)urlString {
+- (void) getVimeoMP4FromURL:(NSString *)urlString {
 	[YTVimeoExtractor fetchVideoURLFromID:urlString quality:YTVimeoVideoQualityHigh success:^(NSURL *videoURL) {
+		NSLog(@"SUCESSO %@", videoURL.absoluteString);
 		[currentDevice airPlayVideoWithURL:videoURL.absoluteString];
 	} failure:^(NSError *error) {
-		
+		NSLog(@"ERRO %@", error.userInfo);
 	}];
 	AppDelegate *selfAux = self;
 	self.extractor.completionBlock = ^(NSURL *url,NSError *error){
@@ -123,7 +124,7 @@
 	NSLog(@">>>>>>>>>>> %@",mediaUrl);
 	if ([self isVideo:mediaUrl]) {
 		if ([self isVimeoUrl:mediaUrl]) {
-			[self getVideoMP4FromURL:mediaUrl];
+			[self getVimeoMP4FromURL:[mediaUrl stringByReplacingOccurrencesOfString:@"http://vimeo.com/" withString:@""]];
 		}else if([self isYoutubeUrl:mediaUrl]){
 			[self getYoutubeMP4FromURL:mediaUrl];
 		}

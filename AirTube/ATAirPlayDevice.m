@@ -117,7 +117,7 @@
 
 -(NSData *)doRequestWithAction:(NSString *)action requestMethod:(NSString *)requestMethod resquestBody:(NSData *)requestBody{	
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.url, action]];
-    NSLog(@"%@",[NSString stringWithFormat:@"%@%@", self.url, action]);
+//    NSLog(@"%@",[NSString stringWithFormat:@"%@%@", self.url, action]);
     NSMutableURLRequest *request;
     request = [NSMutableURLRequest requestWithURL:url];
     

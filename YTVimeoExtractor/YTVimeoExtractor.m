@@ -82,7 +82,9 @@
     }
      
      _running = YES;
-     
+    
+//	NSLog(@"%@",self.vimeoURL);
+	
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:self.vimeoURL];
     [self setupRequest:&request];
     
@@ -163,6 +165,9 @@
             [self extractorFailedWithMessage:@"Found Invalide HTML" errorCode:YTVimeoExtractorErrorCodeInvalidHTML];
             return;
         }
+		
+//		NSLog(@"%@", responseHTML);
+		
         self.playerURL = [self playerURLFromHTML:responseHTML];
       
         if (!self.playerURL || self.playerURL.length <= 20) {
