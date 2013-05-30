@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "LBYouTubeExtractor.h"
 #import "ATAirPlayDevice.h"
+#import "YTVimeoExtractor.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate,NSNetServiceBrowserDelegate, NSNetServiceDelegate>{
 	BOOL stopRunning;

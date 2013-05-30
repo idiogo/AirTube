@@ -73,6 +73,14 @@
 }
 
 - (BOOL)isVideo:(NSString *)mediaUrl{
+	return ([self isVimeoUrl:mediaUrl] || [self isYoutubeUrl:mediaUrl]);
+}
+
+- (BOOL)isVimeoUrl:(NSString *)mediaUrl{
+	return [mediaUrl rangeOfString:@"vimeo.com"].location != NSNotFound;
+}
+
+- (BOOL)isYoutubeUrl:(NSString *)mediaUrl{
 	return [mediaUrl rangeOfString:@"youtube.com/watch"].location != NSNotFound;
 }
 
@@ -90,10 +98,22 @@
 	[self.extractor startExtracting];
 }
 
+- (void) getVideoMP4FromURL:(NSString *)urlString {
+	[YTVimeoExtractor fetchVideoURLFromID:urlString quality:YTVimeoVideoQualityHigh success:^(NSURL *videoURL) {
+		[currentDevice airPlayVideoWithURL:videoURL.absoluteString];
+	} failure:^(NSError *error) {
+		
+	}];
+	AppDelegate *selfAux = self;
+	self.extractor.completionBlock = ^(NSURL *url,NSError *error){
+		[selfAux airPlayVideoWithURL:[url absoluteString]];
+	};
+	[self.extractor startExtracting];
+}
+
 - (void)airPlayVideoWithURL: (NSString *)mp4URL{
 	[currentDevice airPlayVideoWithURL:mp4URL];
 }
-
 
 - (IBAction)stopRunning:(id)sender{
 	[currentDevice stopAirPlay];
@@ -102,7 +122,11 @@
 - (void)airPlayMedia:(NSString *)mediaUrl{
 	NSLog(@">>>>>>>>>>> %@",mediaUrl);
 	if ([self isVideo:mediaUrl]) {
-		[self getYoutubeMP4FromURL:mediaUrl];
+		if ([self isVimeoUrl:mediaUrl]) {
+			[self getVideoMP4FromURL:mediaUrl];
+		}else if([self isYoutubeUrl:mediaUrl]){
+			[self getYoutubeMP4FromURL:mediaUrl];
+		}
 	}else{
 		if ([self isRemoteUrl:mediaUrl]) {
 			[currentDevice airPlayPhotoWithURL:mediaUrl];

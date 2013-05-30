@@ -10,6 +10,7 @@
 		CF24632D1755559900422A58 /* LBYouTubeExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CF24632A1755559900422A58 /* LBYouTubeExtractor.m */; };
 		CF24632E1755559900422A58 /* LBYouTubeExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CF24632A1755559900422A58 /* LBYouTubeExtractor.m */; };
 		CFB606511756F87300E0F502 /* ATAirPlayDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB606501756F87300E0F502 /* ATAirPlayDevice.m */; };
+		D968C85A1757E3D100B7A2CC /* YTVimeoExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = D968C8591757E3D100B7A2CC /* YTVimeoExtractor.m */; };
 		D98D23F017542292003F434C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98D23EF17542292003F434C /* Cocoa.framework */; };
 		D98D23FA17542292003F434C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D98D23F817542292003F434C /* InfoPlist.strings */; };
 		D98D23FC17542292003F434C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D98D23FB17542292003F434C /* main.m */; };
@@ -42,6 +43,8 @@
 		CF24632A1755559900422A58 /* LBYouTubeExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBYouTubeExtractor.m; sourceTree = "<group>"; };
 		CFB6064F1756F87300E0F502 /* ATAirPlayDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAirPlayDevice.h; sourceTree = "<group>"; };
 		CFB606501756F87300E0F502 /* ATAirPlayDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAirPlayDevice.m; sourceTree = "<group>"; };
+		D968C8581757E3D100B7A2CC /* YTVimeoExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTVimeoExtractor.h; sourceTree = "<group>"; };
+		D968C8591757E3D100B7A2CC /* YTVimeoExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTVimeoExtractor.m; sourceTree = "<group>"; };
 		D98D23EC17542292003F434C /* AirTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98D23EF17542292003F434C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D98D23F217542292003F434C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -99,9 +102,19 @@
 			path = AirTube;
 			sourceTree = "<group>";
 		};
+		D968C8571757E3D100B7A2CC /* YTVimeoExtractor */ = {
+			isa = PBXGroup;
+			children = (
+				D968C8581757E3D100B7A2CC /* YTVimeoExtractor.h */,
+				D968C8591757E3D100B7A2CC /* YTVimeoExtractor.m */,
+			);
+			path = YTVimeoExtractor;
+			sourceTree = "<group>";
+		};
 		D98D23E317542292003F434C = {
 			isa = PBXGroup;
 			children = (
+				D968C8571757E3D100B7A2CC /* YTVimeoExtractor */,
 				D9A0BDB31756F31300E3738B /* airtube_statusbar.png */,
 				D9A0BDAA1756F28D00E3738B /* airtube_icon.icns */,
 				D9A0BDAB1756F28D00E3738B /* airtube_icon.png */,
@@ -303,6 +316,7 @@
 				D98D240317542292003F434C /* AppDelegate.m in Sources */,
 				CF24632D1755559900422A58 /* LBYouTubeExtractor.m in Sources */,
 				CFB606511756F87300E0F502 /* ATAirPlayDevice.m in Sources */,
+				D968C85A1757E3D100B7A2CC /* YTVimeoExtractor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
