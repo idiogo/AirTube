@@ -33,6 +33,16 @@
 	});
 }
 
+- (void)airPlayPhotoWithURL: (NSString *)photoUrl{
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
+		//[self runCommand:@"php -f ~/Development/Youtube-Airplay/fsock.php"];
+		
+		NSData *body = [NSData dataWithContentsOfURL:[NSURL URLWithString:photoUrl]];
+        
+        [self doRequestWithAction:@"photo" requestMethod:@"PUT" resquestBody:body];
+	});
+}
+
 - (void)scrub {
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
 		NSString * duration = @"1";
