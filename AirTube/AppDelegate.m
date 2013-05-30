@@ -13,7 +13,18 @@
 
 -(void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [NSApp setServicesProvider:self];
+    _devices = [[NSMutableArray alloc] init];
+    _netServiceBrowser= [[NSNetServiceBrowser alloc] init];
+    _netServiceBrowser.delegate= self;
+    [_netServiceBrowser searchForServicesOfType:@"_airplay._tcp" inDomain:@""];
+    
 }
+
+-(void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing{
+    //Find a service, remember that after that you have to resolve the service to know the address
+    [_devices addObject:aNetService];
+}
+
 
 -(void)doString:(NSPasteboard *)pboard userData:(NSString *)userData error:(NSString **)error {
     NSString * pboardString = [pboard stringForType:NSStringPboardType];
@@ -115,7 +126,7 @@
 }
 
 - (IBAction)stopRunning:(id)sender{
-	
+	NSLog(@"%@",_devices);
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
 		NSURL *url = [NSURL URLWithString:@"http://192.168.20.39:7000/stop"];
 		
