@@ -136,7 +136,7 @@ static NSString *UnescapeString(NSString *string) {
                     streamURL = [[videos objectAtIndex:0] objectForKey:streamURLKey];
                 }
                 else if (self.quality == LBYouTubeVideoQualityMedium) {
-                    unsigned int index = MIN(videos.count-1, 1U);
+                    NSInteger index = MIN(videos.count-1, 1U);
                     streamURL = [[videos objectAtIndex:index] objectForKey:streamURLKey];
                 }
                 else {
