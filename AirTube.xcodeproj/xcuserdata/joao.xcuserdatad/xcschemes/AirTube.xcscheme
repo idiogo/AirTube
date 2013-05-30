@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D98D23EB17542292003F434C"
-               BuildableName = "AirTube.app"
-               BlueprintName = "AirTube"
+               BuildableName = "AirNinja.app"
+               BlueprintName = "AirNinja"
                ReferencedContainer = "container:AirTube.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D98D240B17542292003F434C"
-               BuildableName = "AirTubeTests.octest"
-               BlueprintName = "AirTubeTests"
+               BuildableName = "AirNinjaTests.octest"
+               BlueprintName = "AirNinjaTests"
                ReferencedContainer = "container:AirTube.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D98D23EB17542292003F434C"
-            BuildableName = "AirTube.app"
-            BlueprintName = "AirTube"
+            BuildableName = "AirNinja.app"
+            BlueprintName = "AirNinja"
             ReferencedContainer = "container:AirTube.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D98D23EB17542292003F434C"
-            BuildableName = "AirTube.app"
-            BlueprintName = "AirTube"
+            BuildableName = "AirNinja.app"
+            BlueprintName = "AirNinja"
             ReferencedContainer = "container:AirTube.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -80,8 +80,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D98D23EB17542292003F434C"
-            BuildableName = "AirTube.app"
-            BlueprintName = "AirTube"
+            BuildableName = "AirNinja.app"
+            BlueprintName = "AirNinja"
             ReferencedContainer = "container:AirTube.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

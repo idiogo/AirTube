@@ -62,12 +62,14 @@
 }
 
 -(void)doString:(NSPasteboard *)pboard userData:(NSString *)userData error:(NSString **)error {
+    [[NSApplication sharedApplication] hide:nil];
     NSString * pboardString = [pboard stringForType:NSStringPboardType];
     [self airPlayMedia:pboardString];
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename{
 	NSLog(@"%@", filename);
+    [[NSApplication sharedApplication] hide:nil];
 	[self airPlayMedia:filename];
 	return true;
 }
