@@ -10,11 +10,11 @@
 
 @implementation ATAirPlayDevice
 
--(id)initWithName:(NSString *)name hostName:(NSString *)hostName{
+-(id)initWithName:(NSString *)name{
     self = [super init];
     if(self) {
         self.name = name;
-        self.hostName = hostName;
+		self.hostName = [[[@"http://" stringByAppendingString:[[name stringByReplacingOccurrencesOfString:@" " withString:@"-"] stringByAppendingFormat:@".local:7000/"]] stringByReplacingOccurrencesOfString:@"(" withString:@""] stringByReplacingOccurrencesOfString:@")" withString:@""];
     }
     return self;
 }
@@ -30,8 +30,6 @@
 		
 		[NSThread sleepForTimeInterval:30];
 		[self scrub];
-		
-		
 	});
 }
 
