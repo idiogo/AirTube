@@ -11,14 +11,17 @@
 #import "NSString+UrlEncode.h"
 #import "LBYouTubeExtractor.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate,NSNetServiceBrowserDelegate>{
+@interface AppDelegate : NSObject <NSApplicationDelegate,NSNetServiceBrowserDelegate, NSNetServiceDelegate>{
 	BOOL stopRunning;
     NSNetServiceBrowser *_netServiceBrowser;
     NSNetService *_netService;
-    NSMutableArray *_devices;
+    NSMutableArray *_netServices;
+	NSMutableArray *_devices;
 	NSMutableArray *deviceMenuItems;
 	NSString *currentDeviceHostname;
 	NSStatusItem * statusItem;
+	
+	NSNetService *tmpNetService;
 }
 
 @property (assign) IBOutlet NSWindow *window;

@@ -14,6 +14,7 @@
 -(void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [NSApp setServicesProvider:self];
     _devices = [[NSMutableArray alloc] init];
+	_netServices = [[NSMutableArray alloc] init];
     _netServiceBrowser= [[NSNetServiceBrowser alloc] init];
 	deviceMenuItems = [[NSMutableArray alloc] init];
     _netServiceBrowser.delegate= self;
@@ -23,10 +24,20 @@
 }
 
 -(void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing{
-    //Find a service, remember that after that you have to resolve the service to know the address
-    [_devices addObject:aNetService];
+    [_netServices addObject:aNetService];
+	aNetService.delegate = self;
+	[aNetService resolveWithTimeout:5];
+}
+
+- (void)netServiceDidResolveAddress:(NSNetService *)sender{
+	NSLog(@"%@ <<<", sender.hostName);
+	
+	NSNetService *aNetService = (NSNetService *)sender;
 	NSString *deviceName = aNetService.name;
-	NSString *deviceUrl = [[[@"http://" stringByAppendingString:[[deviceName stringByReplacingOccurrencesOfString:@" " withString:@"-"] stringByAppendingFormat:@".local:7000/"]] stringByReplacingOccurrencesOfString:@"(" withString:@""] stringByReplacingOccurrencesOfString:@")" withString:@""];
+//	NSString *deviceUrl = [[[@"http://" stringByAppendingString:[[deviceName stringByReplacingOccurrencesOfString:@" " withString:@"-"] stringByAppendingFormat:@".local:7000/"]] stringByReplacingOccurrencesOfString:@"(" withString:@""] stringByReplacingOccurrencesOfString:@")" withString:@""];
+//	NSString *deviceUrl = @"http://local._airplay._tcp.Sales-TV:7000/";
+	
+	NSString *deviceUrl = [NSString stringWithFormat:@"http://%@:7000/", aNetService.hostName];
 	NSMenuItem *deviceMenuItem = [[NSMenuItem alloc] initWithTitle:deviceName action:@selector(useDevice:) keyEquivalent:deviceUrl];
 	[self.deviceListMenu addItem:deviceMenuItem];
 	[deviceMenuItems addObject:deviceMenuItem];
