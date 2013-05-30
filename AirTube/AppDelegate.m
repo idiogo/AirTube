@@ -63,11 +63,21 @@
 
 -(void)doString:(NSPasteboard *)pboard userData:(NSString *)userData error:(NSString **)error {
     NSString * pboardString = [pboard stringForType:NSStringPboardType];
-    [self sendMediaUrl:pboardString];
+    [self airPlayMedia:pboardString];
+}
+
+- (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename{
+	NSLog(@"%@", filename);
+	[self airPlayMedia:filename];
+	return true;
 }
 
 - (BOOL)isVideo:(NSString *)mediaUrl{
 	return [mediaUrl rangeOfString:@"youtube.com/watch"].location != NSNotFound;
+}
+
+- (BOOL)isRemoteUrl:(NSString *)mediaUrl{
+	return [mediaUrl rangeOfString:@"http"].location != NSNotFound;
 }
 
 - (void) getYoutubeMP4FromURL:(NSString *)urlString {
@@ -89,19 +99,23 @@
 	[currentDevice stopAirPlay];
 }
 
-- (void)sendMediaUrl:(NSString *)mediaUrl{
+- (void)airPlayMedia:(NSString *)mediaUrl{
 	NSLog(@">>>>>>>>>>> %@",mediaUrl);
 	if ([self isVideo:mediaUrl]) {
 		[self getYoutubeMP4FromURL:mediaUrl];
 	}else{
-		[currentDevice airPlayPhotoWithURL:mediaUrl];
+		if ([self isRemoteUrl:mediaUrl]) {
+			[currentDevice airPlayPhotoWithURL:mediaUrl];
+		}else{
+			[currentDevice airPlayPhotoFromFile:mediaUrl];
+		}
 	}
 }
 
 - (IBAction)useClipboardLink:(id)sender{
 	NSPasteboard*  myPasteboard  = [NSPasteboard generalPasteboard];
 	NSString* link = [myPasteboard  stringForType:NSPasteboardTypeString];
-	[self sendMediaUrl:link];
+	[self airPlayMedia:link];
 }
 
 

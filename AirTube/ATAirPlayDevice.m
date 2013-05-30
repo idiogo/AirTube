@@ -35,12 +35,24 @@
 
 - (void)airPlayPhotoWithURL: (NSString *)photoUrl{
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
-		//[self runCommand:@"php -f ~/Development/Youtube-Airplay/fsock.php"];
 		
 		NSData *body = [NSData dataWithContentsOfURL:[NSURL URLWithString:photoUrl]];
+        [self airPlayPhoto:body];
         
-        [self doRequestWithAction:@"photo" requestMethod:@"PUT" resquestBody:body];
 	});
+}
+
+- (void)airPlayPhotoFromFile: (NSString *)photoFilename{
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
+		
+		NSData *body = [NSData dataWithContentsOfFile:photoFilename];
+        [self airPlayPhoto:body];
+        
+	});
+}
+
+- (void)airPlayPhoto:(NSData *)photoData{
+	[self doRequestWithAction:@"photo" requestMethod:@"PUT" resquestBody:photoData];
 }
 
 - (void)scrub {

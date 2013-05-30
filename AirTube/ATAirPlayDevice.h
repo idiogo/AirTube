@@ -16,6 +16,7 @@
 
 -(void)airPlayVideoWithURL:(NSString *)mp4URL;
 - (void)airPlayPhotoWithURL: (NSString *)photoUrl;
+- (void)airPlayPhotoFromFile: (NSString *)photoFilename;
 -(void)stopAirPlay;
 -(id)initWithHostName:(NSString *)hostName;
 
