@@ -7,8 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "NSString+RegularExpressionSearch.h"
-#import "NSString+UrlEncode.h"
 #import "LBYouTubeExtractor.h"
 #import "ATAirPlayDevice.h"
 
