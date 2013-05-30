@@ -10,6 +10,7 @@
 		CF24631B1755359200422A58 /* NSString+RegularExpressionSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = CF24631A1755359200422A58 /* NSString+RegularExpressionSearch.m */; };
 		CF24632D1755559900422A58 /* LBYouTubeExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CF24632A1755559900422A58 /* LBYouTubeExtractor.m */; };
 		CF24632E1755559900422A58 /* LBYouTubeExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CF24632A1755559900422A58 /* LBYouTubeExtractor.m */; };
+		CFB606511756F87300E0F502 /* ATAirPlayDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB606501756F87300E0F502 /* ATAirPlayDevice.m */; };
 		D98D23F017542292003F434C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98D23EF17542292003F434C /* Cocoa.framework */; };
 		D98D23FA17542292003F434C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D98D23F817542292003F434C /* InfoPlist.strings */; };
 		D98D23FC17542292003F434C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D98D23FB17542292003F434C /* main.m */; };
@@ -43,6 +44,8 @@
 		CF2463281755559900422A58 /* LBYouTube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTube.h; sourceTree = "<group>"; };
 		CF2463291755559900422A58 /* LBYouTubeExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTubeExtractor.h; sourceTree = "<group>"; };
 		CF24632A1755559900422A58 /* LBYouTubeExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBYouTubeExtractor.m; sourceTree = "<group>"; };
+		CFB6064F1756F87300E0F502 /* ATAirPlayDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAirPlayDevice.h; sourceTree = "<group>"; };
+		CFB606501756F87300E0F502 /* ATAirPlayDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAirPlayDevice.m; sourceTree = "<group>"; };
 		D98D23EC17542292003F434C /* AirTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98D23EF17542292003F434C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D98D23F217542292003F434C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -155,6 +158,8 @@
 				CF24631A1755359200422A58 /* NSString+RegularExpressionSearch.m */,
 				D98D240117542292003F434C /* AppDelegate.h */,
 				D98D240217542292003F434C /* AppDelegate.m */,
+				CFB6064F1756F87300E0F502 /* ATAirPlayDevice.h */,
+				CFB606501756F87300E0F502 /* ATAirPlayDevice.m */,
 				D98D240417542292003F434C /* MainMenu.xib */,
 				D98D23F617542292003F434C /* Supporting Files */,
 			);
@@ -308,6 +313,7 @@
 				D98D240317542292003F434C /* AppDelegate.m in Sources */,
 				CF24632D1755559900422A58 /* LBYouTubeExtractor.m in Sources */,
 				D9A0BDA61756EC9600E3738B /* NSString+UrlEncode.m in Sources */,
+				CFB606511756F87300E0F502 /* ATAirPlayDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
