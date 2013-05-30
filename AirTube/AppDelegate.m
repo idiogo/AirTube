@@ -34,6 +34,13 @@
 	[self useDevice:deviceMenuItem];
 }
 
+-(void)awakeFromNib{
+	statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:30.0f];
+	[statusItem setMenu:self.statusMenu];
+	[statusItem setImage:[NSImage imageNamed:@"airtube_statusbar"]];
+	[statusItem setHighlightMode:YES];
+}
+
 - (void)useDevice:(id)sender{
 	NSLog(@"%@", [(NSMenuItem *)sender keyEquivalent]);
 	for (NSMenuItem *item in deviceMenuItems) {

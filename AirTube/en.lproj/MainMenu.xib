@@ -1322,7 +1322,7 @@
 					</object>
 				</array>
 			</object>
-			<object class="NSMenu" id="171598950">
+			<object class="NSMenu" id="892136217">
 				<string key="NSTitle"/>
 				<array class="NSMutableArray" key="NSMenuItems"/>
 			</object>
@@ -2029,7 +2029,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">deviceListMenu</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="171598950"/>
+						<reference key="destination" ref="892136217"/>
 					</object>
 					<int key="connectionID">674</int>
 				</object>
@@ -2040,6 +2040,14 @@
 						<reference key="destination" ref="690946681"/>
 					</object>
 					<int key="connectionID">676</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">statusMenu</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="992111790"/>
+					</object>
+					<int key="connectionID">689</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3055,7 +3063,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">668</int>
-						<reference key="object" ref="171598950"/>
+						<reference key="object" ref="892136217"/>
 						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -3222,7 +3230,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">676</int>
+			<int key="maxID">689</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

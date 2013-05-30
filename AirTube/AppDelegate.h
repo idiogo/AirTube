@@ -18,10 +18,13 @@
     NSMutableArray *_devices;
 	NSMutableArray *deviceMenuItems;
 	NSString *currentDeviceHostname;
+	NSStatusItem * statusItem;
 }
 
 @property (assign) IBOutlet NSWindow *window;
 @property (nonatomic, strong) LBYouTubeExtractor* extractor;
+
+@property (weak) IBOutlet NSMenu *statusMenu;
 
 @property (weak) IBOutlet NSMenu *deviceListMenu;
 @property (weak) IBOutlet NSMenuItem *deviceListTitle;
