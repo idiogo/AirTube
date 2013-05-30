@@ -65,6 +65,8 @@
     NSString * pboardString = [pboard stringForType:NSStringPboardType];
     NSLog(@">>>>>>>>>>> %@",pboardString);
 	[self getYoutubeMP4FromURL:pboardString];
+- (BOOL)isVideo:(NSString *)mediaUrl{
+	return [mediaUrl rangeOfString:@"youtube.com/watch"].location != NSNotFound;
 }
 
 - (void) getYoutubeMP4FromURL:(NSString *)urlString {
