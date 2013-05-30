@@ -24,6 +24,7 @@
 		D9A0BDA01756997000E3738B /* appninja_app_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A0BD9D1756997000E3738B /* appninja_app_1024.png */; };
 		D9A0BDA11756997000E3738B /* appninja_app_1024_rounded.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A0BD9E1756997000E3738B /* appninja_app_1024_rounded.png */; };
 		D9A0BDA21756997000E3738B /* appninja_app_1024_rounded.icns in Resources */ = {isa = PBXBuildFile; fileRef = D9A0BD9F1756997000E3738B /* appninja_app_1024_rounded.icns */; };
+		D9A0BDA61756EC9600E3738B /* NSString+UrlEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A0BDA51756EC9600E3738B /* NSString+UrlEncode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		D9A0BD9D1756997000E3738B /* appninja_app_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appninja_app_1024.png; sourceTree = "<group>"; };
 		D9A0BD9E1756997000E3738B /* appninja_app_1024_rounded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appninja_app_1024_rounded.png; sourceTree = "<group>"; };
 		D9A0BD9F1756997000E3738B /* appninja_app_1024_rounded.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = appninja_app_1024_rounded.icns; sourceTree = "<group>"; };
+		D9A0BDA41756EC9600E3738B /* NSString+UrlEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+UrlEncode.h"; path = "../NSString+UrlEncode.h"; sourceTree = "<group>"; };
+		D9A0BDA51756EC9600E3738B /* NSString+UrlEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+UrlEncode.m"; path = "../NSString+UrlEncode.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,8 @@
 		D98D23F517542292003F434C /* AirTube */ = {
 			isa = PBXGroup;
 			children = (
+				D9A0BDA41756EC9600E3738B /* NSString+UrlEncode.h */,
+				D9A0BDA51756EC9600E3738B /* NSString+UrlEncode.m */,
 				CF2463191755359200422A58 /* NSString+RegularExpressionSearch.h */,
 				CF24631A1755359200422A58 /* NSString+RegularExpressionSearch.m */,
 				D98D2423175429D0003F434C /* Airplay.jpg */,
@@ -302,6 +307,7 @@
 				D98D23FC17542292003F434C /* main.m in Sources */,
 				D98D240317542292003F434C /* AppDelegate.m in Sources */,
 				CF24632D1755559900422A58 /* LBYouTubeExtractor.m in Sources */,
+				D9A0BDA61756EC9600E3738B /* NSString+UrlEncode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
