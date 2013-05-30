@@ -63,12 +63,7 @@
 
 -(void)doString:(NSPasteboard *)pboard userData:(NSString *)userData error:(NSString **)error {
     NSString * pboardString = [pboard stringForType:NSStringPboardType];
-    NSLog(@">>>>>>>>>>> %@",pboardString);
-	if ([self isVideo:pboardString]) {
-		[self getYoutubeMP4FromURL:pboardString];
-	}else{
-		[currentDevice airPlayPhotoWithURL:pboardString];
-	}
+    [self sendMediaUrl:pboardString];
 }
 
 - (BOOL)isVideo:(NSString *)mediaUrl{
@@ -94,11 +89,19 @@
 	[currentDevice stopAirPlay];
 }
 
+- (void)sendMediaUrl:(NSString *)mediaUrl{
+	NSLog(@">>>>>>>>>>> %@",mediaUrl);
+	if ([self isVideo:mediaUrl]) {
+		[self getYoutubeMP4FromURL:mediaUrl];
+	}else{
+		[currentDevice airPlayPhotoWithURL:mediaUrl];
+	}
+}
+
 - (IBAction)useClipboardLink:(id)sender{
 	NSPasteboard*  myPasteboard  = [NSPasteboard generalPasteboard];
 	NSString* link = [myPasteboard  stringForType:NSPasteboardTypeString];
-	NSLog(@"%@", link);
-	[self getYoutubeMP4FromURL:link];
+	[self sendMediaUrl:link];
 }
 
 
