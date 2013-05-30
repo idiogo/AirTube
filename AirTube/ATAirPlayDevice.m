@@ -10,11 +10,11 @@
 
 @implementation ATAirPlayDevice
 
--(id)initWithName:(NSString *)name{
+-(id)initWithHostName:(NSString *)hostName{
     self = [super init];
     if(self) {
-        self.name = name;
-		self.hostName = [[[@"http://" stringByAppendingString:[[name stringByReplacingOccurrencesOfString:@" " withString:@"-"] stringByAppendingFormat:@".local:7000/"]] stringByReplacingOccurrencesOfString:@"(" withString:@""] stringByReplacingOccurrencesOfString:@")" withString:@""];
+        self.hostName = hostName;
+		self.url = [NSString stringWithFormat:@"http://%@:7000/", hostName];
     }
     return self;
 }
@@ -35,7 +35,6 @@
 
 - (void)scrub {
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
-		//[self runCommand:@"php -f ~/Development/Youtube-Airplay/fsock.php"];
 		NSString * duration = @"1";
 		NSString * position = @"0";
 		while (![duration  isEqualToString:position]) {
@@ -53,18 +52,26 @@
 	});
 }
 
+- (void)stopAirPlay{
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
+        [self doRequestWithAction:@"stop" requestMethod:@"POST"];
+	});
+}
+
 -(NSData *)doRequestWithAction:(NSString *)action requestMethod:(NSString *)requestMethod{
     return [self doRequestWithAction:action requestMethod:requestMethod resquestBody:nil];
 }
 
--(NSData *)doRequestWithAction:(NSString *)action requestMethod:(NSString *)requestMethod resquestBody:(NSData *)requestBody{
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.hostName, action]];
-    
+-(NSData *)doRequestWithAction:(NSString *)action requestMethod:(NSString *)requestMethod resquestBody:(NSData *)requestBody{	
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.url, action]];
+    NSLog(@"%@",[NSString stringWithFormat:@"%@%@", self.url, action]);
     NSMutableURLRequest *request;
     request = [NSMutableURLRequest requestWithURL:url];
     
     [request setHTTPMethod:requestMethod];
-
+	if(requestBody != nil) {
+			[request setHTTPBody: requestBody];
+	}
     NSError *errorReturned;
     NSURLResponse *theResponse = [[NSURLResponse alloc] init];
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&theResponse error:&errorReturned];
@@ -72,7 +79,7 @@
     if (errorReturned) {
         return nil;
     } else if ([(NSHTTPURLResponse*) theResponse statusCode] != 200) {
-        return nil;
+		return nil;
     } else {
         return data;
     }

@@ -12,8 +12,10 @@
 
 @property (strong,nonatomic) NSString *name;
 @property (strong,nonatomic) NSString *hostName;
+@property (strong,nonatomic) NSString *url;
 
 -(void)airPlayVideoWithURL:(NSString *)mp4URL;
--(id)initWithName:(NSString *)name;
+-(void)stopAirPlay;
+-(id)initWithHostName:(NSString *)hostName;
 
 @end

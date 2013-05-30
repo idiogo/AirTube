@@ -10,6 +10,7 @@
 #import "NSString+RegularExpressionSearch.h"
 #import "NSString+UrlEncode.h"
 #import "LBYouTubeExtractor.h"
+#import "ATAirPlayDevice.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate,NSNetServiceBrowserDelegate, NSNetServiceDelegate>{
 	BOOL stopRunning;
@@ -18,9 +19,8 @@
     NSMutableArray *_netServices;
 	NSMutableArray *_devices;
 	NSMutableArray *deviceMenuItems;
-	NSString *currentDeviceHostname;
 	NSStatusItem * statusItem;
-	
+	ATAirPlayDevice *currentDevice;
 	NSNetService *tmpNetService;
 }
 

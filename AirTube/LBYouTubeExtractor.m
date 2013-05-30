@@ -124,7 +124,6 @@ static NSString *UnescapeString(NSString *string) {
         JSON = UnescapeString(JSON);
         NSError* decodingError = nil;
         NSDictionary* JSONCode = [NSJSONSerialization JSONObjectWithData:[JSON dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:&decodingError];
-                NSLog(@"%@",html);
         if (decodingError) {
             *error = decodingError;
         }
