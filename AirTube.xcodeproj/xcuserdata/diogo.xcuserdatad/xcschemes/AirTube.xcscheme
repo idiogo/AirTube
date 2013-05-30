@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D98D23EB17542292003F434C"
                BuildableName = "AirTube.app"
-               BlueprintName = "AirTube"
+               BlueprintName = "AirNinja"
                ReferencedContainer = "container:AirTube.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,7 +34,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D98D240B17542292003F434C"
                BuildableName = "AirTubeTests.octest"
-               BlueprintName = "AirTubeTests"
+               BlueprintName = "AirNinjaTests"
                ReferencedContainer = "container:AirTube.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -44,7 +44,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D98D23EB17542292003F434C"
             BuildableName = "AirTube.app"
-            BlueprintName = "AirTube"
+            BlueprintName = "AirNinja"
             ReferencedContainer = "container:AirTube.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,7 +63,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D98D23EB17542292003F434C"
             BuildableName = "AirTube.app"
-            BlueprintName = "AirTube"
+            BlueprintName = "AirNinja"
             ReferencedContainer = "container:AirTube.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -81,7 +81,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D98D23EB17542292003F434C"
             BuildableName = "AirTube.app"
-            BlueprintName = "AirTube"
+            BlueprintName = "AirNinja"
             ReferencedContainer = "container:AirTube.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

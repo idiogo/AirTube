@@ -45,7 +45,7 @@
 		CFB606501756F87300E0F502 /* ATAirPlayDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAirPlayDevice.m; sourceTree = "<group>"; };
 		D968C8581757E3D100B7A2CC /* YTVimeoExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTVimeoExtractor.h; sourceTree = "<group>"; };
 		D968C8591757E3D100B7A2CC /* YTVimeoExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTVimeoExtractor.m; sourceTree = "<group>"; };
-		D98D23EC17542292003F434C /* AirTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D98D23EC17542292003F434C /* AirNinja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirNinja.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98D23EF17542292003F434C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D98D23F217542292003F434C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		D98D23F317542292003F434C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -130,7 +130,7 @@
 		D98D23ED17542292003F434C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D98D23EC17542292003F434C /* AirTube.app */,
+				D98D23EC17542292003F434C /* AirNinja.app */,
 				D98D240C17542292003F434C /* AirTubeTests.octest */,
 			);
 			name = Products;
@@ -203,9 +203,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D98D23EB17542292003F434C /* AirTube */ = {
+		D98D23EB17542292003F434C /* AirNinja */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D98D241D17542292003F434C /* Build configuration list for PBXNativeTarget "AirTube" */;
+			buildConfigurationList = D98D241D17542292003F434C /* Build configuration list for PBXNativeTarget "AirNinja" */;
 			buildPhases = (
 				D98D23E817542292003F434C /* Sources */,
 				D98D23E917542292003F434C /* Frameworks */,
@@ -215,14 +215,14 @@
 			);
 			dependencies = (
 			);
-			name = AirTube;
+			name = AirNinja;
 			productName = AirTube;
-			productReference = D98D23EC17542292003F434C /* AirTube.app */;
+			productReference = D98D23EC17542292003F434C /* AirNinja.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D98D240B17542292003F434C /* AirTubeTests */ = {
+		D98D240B17542292003F434C /* AirNinjaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D98D242017542292003F434C /* Build configuration list for PBXNativeTarget "AirTubeTests" */;
+			buildConfigurationList = D98D242017542292003F434C /* Build configuration list for PBXNativeTarget "AirNinjaTests" */;
 			buildPhases = (
 				D98D240717542292003F434C /* Sources */,
 				D98D240817542292003F434C /* Frameworks */,
@@ -234,7 +234,7 @@
 			dependencies = (
 				D98D241117542292003F434C /* PBXTargetDependency */,
 			);
-			name = AirTubeTests;
+			name = AirNinjaTests;
 			productName = AirTubeTests;
 			productReference = D98D240C17542292003F434C /* AirTubeTests.octest */;
 			productType = "com.apple.product-type.bundle";
@@ -260,8 +260,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D98D23EB17542292003F434C /* AirTube */,
-				D98D240B17542292003F434C /* AirTubeTests */,
+				D98D23EB17542292003F434C /* AirNinja */,
+				D98D240B17542292003F434C /* AirNinjaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -334,7 +334,7 @@
 /* Begin PBXTargetDependency section */
 		D98D241117542292003F434C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D98D23EB17542292003F434C /* AirTube */;
+			target = D98D23EB17542292003F434C /* AirNinja */;
 			targetProxy = D98D241017542292003F434C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -441,7 +441,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirTube/AirTube-Prefix.pch";
 				INFOPLIST_FILE = "AirTube/AirTube-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AirNinja;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -453,7 +453,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirTube/AirTube-Prefix.pch";
 				INFOPLIST_FILE = "AirTube/AirTube-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AirNinja;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -500,7 +500,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D98D241D17542292003F434C /* Build configuration list for PBXNativeTarget "AirTube" */ = {
+		D98D241D17542292003F434C /* Build configuration list for PBXNativeTarget "AirNinja" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D98D241E17542292003F434C /* Debug */,
@@ -509,7 +509,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D98D242017542292003F434C /* Build configuration list for PBXNativeTarget "AirTubeTests" */ = {
+		D98D242017542292003F434C /* Build configuration list for PBXNativeTarget "AirNinjaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D98D242117542292003F434C /* Debug */,
