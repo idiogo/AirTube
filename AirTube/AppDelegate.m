@@ -64,7 +64,13 @@
 -(void)doString:(NSPasteboard *)pboard userData:(NSString *)userData error:(NSString **)error {
     NSString * pboardString = [pboard stringForType:NSStringPboardType];
     NSLog(@">>>>>>>>>>> %@",pboardString);
-	[self getYoutubeMP4FromURL:pboardString];
+	if ([self isVideo:pboardString]) {
+		[self getYoutubeMP4FromURL:pboardString];
+	}else{
+		[currentDevice airPlayPhotoWithURL:pboardString];
+	}
+}
+
 - (BOOL)isVideo:(NSString *)mediaUrl{
 	return [mediaUrl rangeOfString:@"youtube.com/watch"].location != NSNotFound;
 }
