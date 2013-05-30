@@ -15,11 +15,15 @@
     NSNetServiceBrowser *_netServiceBrowser;
     NSNetService *_netService;
     NSMutableArray *_devices;
+	NSMutableArray *deviceMenuItems;
+	NSString *currentDeviceHostname;
 }
 
 @property (assign) IBOutlet NSWindow *window;
 @property (nonatomic, strong) LBYouTubeExtractor* extractor;
 
+@property (weak) IBOutlet NSMenu *deviceListMenu;
+@property (weak) IBOutlet NSMenuItem *deviceListTitle;
 
 - (IBAction)stopRunning:(id)sender;
 - (IBAction)useClipboardLink:(id)sender;

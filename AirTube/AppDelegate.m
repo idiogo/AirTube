@@ -15,16 +15,33 @@
     [NSApp setServicesProvider:self];
     _devices = [[NSMutableArray alloc] init];
     _netServiceBrowser= [[NSNetServiceBrowser alloc] init];
+	deviceMenuItems = [[NSMutableArray alloc] init];
     _netServiceBrowser.delegate= self;
     [_netServiceBrowser searchForServicesOfType:@"_airplay._tcp" inDomain:@""];
-    
+	currentDeviceHostname = @"";
+    [self.deviceListTitle setSubmenu:self.deviceListMenu];
 }
 
 -(void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing{
     //Find a service, remember that after that you have to resolve the service to know the address
     [_devices addObject:aNetService];
+	NSString *deviceName = aNetService.name;
+	NSString *deviceUrl = [[[@"http://" stringByAppendingString:[[deviceName stringByReplacingOccurrencesOfString:@" " withString:@"-"] stringByAppendingFormat:@".local:7000/"]] stringByReplacingOccurrencesOfString:@"(" withString:@""] stringByReplacingOccurrencesOfString:@")" withString:@""];
+	NSMenuItem *deviceMenuItem = [[NSMenuItem alloc] initWithTitle:deviceName action:@selector(useDevice:) keyEquivalent:deviceUrl];
+	[self.deviceListMenu addItem:deviceMenuItem];
+	[deviceMenuItems addObject:deviceMenuItem];
+	[deviceMenuItem setState:0];
+	[self useDevice:deviceMenuItem];
 }
 
+- (void)useDevice:(id)sender{
+	NSLog(@"%@", [(NSMenuItem *)sender keyEquivalent]);
+	for (NSMenuItem *item in deviceMenuItems) {
+		[item setState:0];
+	}
+	[(NSMenuItem *)sender setState:1];
+	currentDeviceHostname = [(NSMenuItem *)sender keyEquivalent];
+}
 
 -(void)doString:(NSPasteboard *)pboard userData:(NSString *)userData error:(NSString **)error {
     NSString * pboardString = [pboard stringForType:NSStringPboardType];
@@ -53,7 +70,7 @@
 		
 		NSData* body = [stringBody dataUsingEncoding:NSUTF8StringEncoding];
 		
-		NSURL *url = [NSURL URLWithString:@"http://192.168.20.39:7000/play"];
+		NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@play", currentDeviceHostname]];
 		
 		NSMutableURLRequest *request;
 		request = [NSMutableURLRequest requestWithURL:url];
@@ -92,7 +109,7 @@
 		NSString * position = @"0";
 		while (![duration  isEqualToString:position]) {
 			
-			NSURL *url = [NSURL URLWithString:@"http://192.168.20.39:7000/scrub"];
+			NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@scrub", currentDeviceHostname]];
 			
 			NSMutableURLRequest *request;
 			request = [NSMutableURLRequest requestWithURL:url];
@@ -128,7 +145,7 @@
 - (IBAction)stopRunning:(id)sender{
 	NSLog(@"%@",_devices);
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
-		NSURL *url = [NSURL URLWithString:@"http://192.168.20.39:7000/stop"];
+		NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@stop", currentDeviceHostname]];
 		
 		NSMutableURLRequest *request;
 		request = [NSMutableURLRequest requestWithURL:url];
